@@ -10,11 +10,13 @@ def countDown(year: int, month: int, day: int) -> int:
 
 def showPopup():
     root = tk.Tk()
-    days_remaining = countDown(2025, 7, 30)
+    present = datetime.now()
+    days_remaining = countDown(present.year, present.month, present.day)
     frm = ttk.Frame(root, padding=10)
     frm.grid()
-    ttk.Label(frm, text = str(days_remaining) + " days left in Indium").grid(column=0, row=0)
+    ttk.Label(frm, text = str(days_remaining) + " days left @ Indium").grid(column=0, row=0)
     ttk.Button(frm, text = "Close", command = root.destroy).grid(column=1, row=0)
     root.mainloop()
 
-showPopup()
+if __name__ == '__main__':
+    showPopup()
